@@ -7,7 +7,7 @@ $requestUri = str_replace($relativeUri, '', $_SERVER['REQUEST_URI']);
 $code = 404;
 $content = 'Not found';
 
-if (in_array($requestUri, $whitelist)) {
+if (in_array(parse_url($requestUri, PHP_URL_PATH), $whitelist)) {
 
     $url = $backendUrl . $requestUri;
 
